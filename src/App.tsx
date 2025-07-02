@@ -9,6 +9,16 @@ import OnAuthSuccess from "./pages/OnAuthSuccess";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 
+
+
+import VerifyAccount from './pages/VerifyAccount';
+
+<Routes>
+  {/* Baaki routes */}
+  <Route path="/verify" element={<VerifyAccount />} />
+</Routes>
+
+
 const queryClient = new QueryClient();
 
 const App = () =>
