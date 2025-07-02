@@ -2,11 +2,10 @@
 exports.handler = async (event) => {
   const { email, password } = JSON.parse(event.body || '{}');
 
-  // Replace this logic with your real DB or auth
-  if (email === "jaydipjadhav062@gmail.com" && password === "123456") {
+  if (email === "admin@example.com" && password === "123456") {
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, message: "Login successful" }),
     };
   } else {
     return {
