@@ -12,5 +12,58 @@
 <body>
   <div id="root"></div>
 </body>
+<script>
+  window.ezsite = {
+    apis: {
+      login: async ({ email, password }) => {
+        const res = await fetch("https://jayviklabs.netlify.app/.netlify/functions/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        return await res.json();
+      },
+
+      register: async ({ email, password }) => {
+        const res = await fetch("https://jayviklabs.netlify.app/.netlify/functions/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        return await res.json();
+      },
+
+      getUserInfo: async () => {
+        const res = await fetch("https://jayviklabs.netlify.app/.netlify/functions/getUser");
+        return await res.json();
+      },
+
+      logout: async () => {
+        await fetch("https://jayviklabs.netlify.app/.netlify/functions/logout", {
+          method: "POST"
+        });
+      },
+
+      sendResetPwdEmail: async ({ email }) => {
+        const res = await fetch("https://jayviklabs.netlify.app/.netlify/functions/send-reset", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        return await res.json();
+      },
+
+      resetPassword: async ({ token, password }) => {
+        const res = await fetch("https://jayviklabs.netlify.app/.netlify/functions/reset-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, password }),
+        });
+        return await res.json();
+      }
+    }
+  };
+</script>
+
 
 </html>
